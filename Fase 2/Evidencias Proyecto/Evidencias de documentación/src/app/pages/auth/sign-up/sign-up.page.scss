@@ -1,0 +1,73 @@
+/* Estilos Generales */
+ion-content {
+  background-color: #f9f9f9; /* Fondo claro */
+}
+
+/* Contenedor del Logo */
+.logo-container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.app-title {
+  font-size: 32px;
+  color: #EC221F; /* Color distintivo */
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.slogan {
+  font-size: 18px;
+  color: #555;
+  font-style: italic;
+}
+
+/* Estilos del Formulario */
+form {
+  margin-top: 40px;
+}
+
+/* Input de los Formulario */
+ion-item.input-item {
+  margin-bottom: 10px; /* Añadido margen para separar los inputs */
+}
+
+ion-label {
+  color: #333;
+}
+
+ion-input {
+  border-radius: 5px;
+  background-color: #fff;
+  padding: 10px;
+}
+
+/* Botón de Registro */
+.register-btn {
+  margin-top: 20px;
+  background-color: #EC221F; /* Color coherente con el logo */
+  font-weight: bold;
+}
+
+.register-btn:focus {
+  outline: none;
+}
+
+/* Enlace de Login */
+.login-link {
+  text-align: center;
+  margin-top: 15px;
+  color: #007bff; /* Color azul para enlace */
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- Botón de regresar utilizando ion-back-button -->
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/inicio"></ion-back-button> <!-- Redirige al inicio si no hay pantalla previa -->
+    </ion-buttons>
+    <ion-title>Mensajería</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let conversacion of conversaciones" (click)="abrirChat(conversacion.id ?? '')" detail="true" lines="inset" class="conversation-item">
+      <ion-avatar slot="start">
+      
+        <img src="../../../assets/logo.png" alt="Avatar de usuario">
+      </ion-avatar>
+      <ion-label class="conversation-label">
+        <h2 class="conversation-title">{{ conversacion.aliasDelOtroUsuario }}</h2>
+        <p class="conversation-message">
+          {{ conversacion.mensajes && conversacion.mensajes.length > 0 ? conversacion.mensajes[conversacion.mensajes.length - 1].contenido : 'Sin mensajes' }}
+        </p>      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <div class="footer-container">
+      <ion-buttons slot="start">
+        <ion-button (click)="irAlPerfil()" color="dark" class="footer-button">Perfil</ion-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-button (click)="irAMensajeria()" color="dark" class="footer-button">Mensajería</ion-button>
+        <ion-button (click)="irAInicio()" color="dark" class="footer-button">Inicio</ion-button>
+      </ion-buttons>
+    </div>
+  </ion-toolbar>
+</ion-footer>
+

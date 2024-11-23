@@ -1,0 +1,77 @@
+<ion-content class="ion-padding">
+  <div class="container">
+
+    <h2 class="title">Datos Personales</h2>
+
+    <form (ngSubmit)="onSubmit()" #personalDataForm="ngForm">
+      <!-- Nombre Real -->
+      <ion-item class="input-item">
+        <ion-label position="floating">Nombre Real</ion-label>
+        <ion-input 
+          type="text" 
+          [(ngModel)]="nombreReal" 
+          name="nombreReal" 
+          required
+          #nombreRealInput="ngModel"
+        ></ion-input>
+      </ion-item>
+      <div *ngIf="nombreRealInput.invalid && nombreRealInput.touched" class="error-message">
+        <small *ngIf="nombreRealInput.errors?.['required']">El nombre real es requerido.</small>
+      </div>
+
+      <!-- Nombre Alias -->
+      <ion-item class="input-item">
+        <ion-label position="floating">Nombre Alias</ion-label>
+        <ion-input 
+          type="text" 
+          [(ngModel)]="nombreAlias" 
+          name="nombreAlias" 
+          required
+          #nombreAliasInput="ngModel"
+        ></ion-input>
+      </ion-item>
+      <div *ngIf="nombreAliasInput.invalid && nombreAliasInput.touched" class="error-message">
+        <small *ngIf="nombreAliasInput.errors?.['required']">El nombre alias es requerido.</small>
+      </div>
+
+      <!-- Fecha de Nacimiento -->
+      <ion-item class="input-item">
+        <ion-label position="floating">Fecha de Nacimiento</ion-label>
+        <ion-input 
+          type="date" 
+          [(ngModel)]="fechaNacimiento" 
+          name="fechaNacimiento" 
+          required
+          #fechaNacimientoInput="ngModel"
+        ></ion-input>
+      </ion-item>
+      <div *ngIf="fechaNacimientoInput.invalid && fechaNacimientoInput.touched" class="error-message">
+        <small *ngIf="fechaNacimientoInput.errors?.['required']">La fecha de nacimiento es requerida.</small>
+      </div>
+
+      <!-- Género -->
+      <ion-item class="input-item">
+        <ion-label>Género</ion-label>
+        <ion-select 
+          [(ngModel)]="generoSeleccionado" 
+          name="generoSeleccionado" 
+          interface="action-sheet"
+          required
+          #generoSeleccionadoInput="ngModel"
+        >
+          <ion-select-option value="Masculino">Masculino</ion-select-option>
+          <ion-select-option value="Femenino">Femenino</ion-select-option>
+          <ion-select-option value="Otro">Otro</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <div *ngIf="generoSeleccionadoInput.invalid && generoSeleccionadoInput.touched" class="error-message">
+        <small *ngIf="generoSeleccionadoInput.errors?.['required']">El género es requerido.</small>
+      </div>
+
+      <ion-button expand="full" type="submit" color="danger" [disabled]="personalDataForm.invalid">
+        Guardar Datos
+      </ion-button>
+    </form>
+
+  </div>
+</ion-content>

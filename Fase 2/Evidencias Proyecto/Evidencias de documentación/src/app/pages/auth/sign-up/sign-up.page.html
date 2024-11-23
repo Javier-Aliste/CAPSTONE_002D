@@ -1,0 +1,22 @@
+<ion-content class="ion-padding">
+  <div class="logo-container">
+    <img src="/assets/logo.png" alt="Logo" class="logo" />
+    <h2 class="app-title">másQueUnMatch</h2>
+    <p class="slogan">Una conexión real</p>
+  </div>
+  
+  <form (ngSubmit)="signUp()">
+    <ion-label position="floating">Correo Electrónico</ion-label>
+    <ion-item class="input-item">
+      <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>
+    </ion-item>
+    <ion-label position="floating">Contraseña</ion-label>
+    <ion-item class="input-item">
+      <ion-input type="password" [(ngModel)]="password" name="password" required></ion-input>
+    </ion-item>
+
+    <ion-button expand="full" type="submit" color="danger" class="register-btn">Registrarse</ion-button>
+
+    <p class="login-link" (click)="goToLogin()">Ya tengo una cuenta. Iniciar sesión</p>
+  </form>
+</ion-content>

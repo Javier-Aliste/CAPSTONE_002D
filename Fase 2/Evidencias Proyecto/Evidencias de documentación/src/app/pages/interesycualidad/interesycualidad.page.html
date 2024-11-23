@@ -1,0 +1,86 @@
+<ion-content class="ion-padding">
+  <div class="text-center">
+    <img src="../../../assets/logo.png" alt="Logo" class="logo-image">
+    <h2 class="title">Mas Que Un Match</h2>
+    <p class="description-text">¡Perfecto! Estamos casi listos, añade tus 3 intereses y cualidades que más te representan a la sección de tu perfil para que te ayuden a conectar con la gente.</p>
+  </div>
+
+  <ion-grid>
+    <!-- Descripción Personal -->
+    <ion-row>
+      <ion-col size="12">
+        <ion-item class="input-item">
+          <ion-label position="floating">Descripción Personal</ion-label>
+          <ion-textarea 
+            [(ngModel)]="cliente.descripcion" 
+            name="descripcion" 
+            rows="3" 
+            required
+            #descripcionInput="ngModel"
+          ></ion-textarea>
+        </ion-item>
+        <div *ngIf="descripcionInput.invalid && descripcionInput.touched" class="error-message">
+          <small *ngIf="descripcionInput.errors?.['required']">La descripción es requerida.</small>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <!-- Intereses -->
+    <ion-row>
+      <ion-col size="12">
+        <ion-label>Intereses</ion-label>
+        <ion-item class="input-item">
+          <ion-select 
+            [(ngModel)]="cliente.intereses" 
+            name="intereses" 
+            multiple="true" 
+            (ionChange)="validarSeleccion()"
+            required
+            #interesesInput="ngModel"
+          >
+            <ion-select-option *ngFor="let interes of intereses" [value]="interes">{{ interes }}</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <div *ngIf="interesesInput.invalid && interesesInput.touched" class="error-message">
+          <small *ngIf="interesesInput.errors?.['required']">Por favor selecciona al menos tres interés.</small>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <!-- Cualidades -->
+    <ion-row>
+      <ion-col size="12">
+        <ion-label>Cualidades</ion-label>
+        <ion-item class="input-item">
+          <ion-select 
+            [(ngModel)]="cliente.cualidades" 
+            name="cualidades" 
+            multiple="true" 
+            (ionChange)="validarSeleccion()"
+            required
+            #cualidadesInput="ngModel"
+          >
+            <ion-select-option *ngFor="let cualidad of cualidades" [value]="cualidad">{{ cualidad }}</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <div *ngIf="cualidadesInput.invalid && cualidadesInput.touched" class="error-message">
+          <small *ngIf="cualidadesInput.errors?.['required']">Por favor selecciona al menos tres cualidad.</small>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <!-- Botón Continuar -->
+    <ion-row>
+      <ion-col size="12" class="ion-text-center">
+        <ion-button 
+          expand="full" 
+          color="danger" 
+          [disabled]="!puedeContinuar" 
+          (click)="continuar()"
+        >
+          Continuar
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

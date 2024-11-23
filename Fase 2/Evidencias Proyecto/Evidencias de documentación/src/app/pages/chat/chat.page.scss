@@ -1,0 +1,101 @@
+.titulo-centralizado {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  flex: 1;
+}
+
+/* Estilo general de los mensajes */
+.mensaje {
+  background: #f1f1f1;
+  border-radius: 8px;
+  padding: 12px;
+  margin: 8px 0;
+  max-width: 80%;
+  word-wrap: break-word;
+  font-size: 14px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Añadir sombra */
+}
+
+/* Estilo para los mensajes enviados */
+.mensaje-enviado {
+  background-color: #eb0707;
+  color: white;
+  margin-left: auto;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Añadir sombra */
+}
+
+/* Estilo para los mensajes recibidos */
+.mensaje-recibido {
+  background-color: #2e2d2d;
+  color: #f6f6f6;
+  margin-right: auto;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Añadir sombra */
+}
+
+/* Estilo para la fecha de los mensajes */
+.fecha {
+  font-size: 10px;
+  color: #fffafa;
+  margin-top: 8px;  /* Más espacio entre fecha y mensaje */
+}
+
+/* Estilo del área de texto */
+textarea {
+  width: 100%;
+  min-height: 50px; /* Añadir altura mínima */
+  background-color: #f9f9f9;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 12px;
+  resize: none;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+textarea:focus {
+  border-color: #eb0707;
+  outline: none;
+}
+
+/* Estilo del contenedor de entrada de mensaje */
+.input-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+  position: relative;
+}
+
+/* Estilo del botón de enviar */
+ion-button {
+  --background: #eb0707;
+  --color: white;
+  --border-radius: 50px;
+  --padding-start: 16px;
+  --padding-end: 16px;
+  font-size: 16px;
+  transition: transform 0.2s ease-in-out;
+  padding: 10px 20px; /* Añadir padding para mayor tamaño del botón */
+}
+
+ion-button:hover {
+  transform: scale(1.05);
+}
+
+/* Estilo del pie de página */
+ion-footer {
+  background-color: #ffffff;
+  padding: 10px;
+  box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.05); /* Sombra más suave */
+}
