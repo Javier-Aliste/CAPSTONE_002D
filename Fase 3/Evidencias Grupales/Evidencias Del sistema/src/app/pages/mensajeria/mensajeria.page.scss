@@ -1,0 +1,55 @@
+/* Estilo para los items de las conversaciones */
+.conversation-item {
+    --background: #f8f8f8; /* Fondo suave para cada conversación */
+    --border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+  
+  /* Estilo para las etiquetas de conversación */
+  .conversation-label {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+  
+  /* Título de la conversación (nombre del otro usuario) */
+  .conversation-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+  }
+  
+  /* Mensaje más reciente */
+  .conversation-message {
+    font-size: 14px;
+    color: #888;
+  }
+  
+  /* Avatar con bordes redondeados */
+  ion-avatar img {
+    border-radius: 50%;
+    border: 2px solid #ddd;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Hover effect para resaltar el item */
+  ion-item:hover {
+    --background: #e0f7fa; /* Cambia el fondo cuando el cursor está sobre el item */
+    cursor: pointer;
+  }
+
+
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+  }
+  
+  .footer-button {
+    font-weight: bold;
+    font-size: 1em;
+    text-transform: uppercase;
+  }
+  
+  

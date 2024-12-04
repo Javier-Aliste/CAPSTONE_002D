@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/inicio"></ion-back-button> 
+    </ion-buttons>
+    <ion-title>Mensajería</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="irANivel()" color="primary">
+        Nivel
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let conversacion of conversaciones" (click)="abrirChat(conversacion.id ?? '')" detail="true" lines="inset" class="conversation-item">
+      <ion-avatar slot="start">
+        <img src="../../../assets/logo.png" alt="Avatar de usuario">
+      </ion-avatar>
+      <ion-label class="conversation-label">
+        <h2 class="conversation-title">{{ obtenerNombreAMostrar(conversacion) }}</h2>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <div class="footer-container">
+      <ion-buttons slot="start">
+        <ion-button (click)="irAlPerfil()" color="dark" class="footer-button">Perfil</ion-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-button (click)="irAMensajeria()" color="dark" class="footer-button">Mensajería</ion-button>
+        <ion-button (click)="irAInicio()" color="dark" class="footer-button">Inicio</ion-button>
+      </ion-buttons>
+    </div>
+  </ion-toolbar>
+</ion-footer>
+

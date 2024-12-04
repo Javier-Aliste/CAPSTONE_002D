@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Sistema de Niveles</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">{{ obtenerNombreAMostrar() }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="container">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Mostrar Nombre Real</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>
+          Actualmente estás viendo tu nombre como: <strong>{{ obtenerNombreAMostrar() }}</strong>.
+          Al presionar el botón "Subir de nivel", tu nombre real será visible para otras personas en lugar de tu alias.
+        </p>
+        <ion-button expand="full" color="danger" (click)="subirDeNivel()">
+          Subir de nivel
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+    
+  </div>
+
+
+
+
+</ion-content>

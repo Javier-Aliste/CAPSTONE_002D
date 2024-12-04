@@ -1,0 +1,29 @@
+.app-header {
+  display: flex;
+  align-items: center;
+}
+
+.app-logo {
+  width: 40px; // Ajusta el tamaño del logo
+  height: auto;
+  margin-right: 10px; // Espacio entre el logo y el título
+}
+
+.app-title {
+  font-size: 24px; // Tamaño de fuente para el título
+  font-weight: bold; // Negrita para mayor énfasis
+}
+
+ion-button {
+  margin: 10px 0; // Espaciado entre botones
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between; // Espacio entre los botones
+}
+
+.footer-button {
+  width: 100px; // Ancho fijo para botones en el footer
+}
+

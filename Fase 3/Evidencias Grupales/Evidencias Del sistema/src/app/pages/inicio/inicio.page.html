@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <div class="app-header">
+        <img src="../../../assets/logo.png" alt="Logo de MásQueUnMatch" class="app-logo">
+        <span class="app-title">MásQueUnMatch</span>
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="content">
+  <div class="cliente-container">
+    <ion-card *ngFor="let cliente of clientes" class="cliente-card">
+      <ion-card-header>
+        <ion-card-title class="card-title">
+          {{ cliente.nombreAlias }} ({{ calcularEdad(cliente.fechaNacimiento) }})
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <img src="../../../assets/logo.png" alt="" class="cliente-image">
+        <ion-button fill="outline" color="dark" (click)="cliente.id ? irAVerTarjeta(cliente.id) : null">Ver Tarjeta</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <div class="footer-container">
+      <ion-buttons slot="start">
+        <ion-button (click)="irAlPerfil()" color="dark" class="footer-button">Perfil</ion-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-button (click)="irAMensajeria()" color="dark" class="footer-button">Mensajería</ion-button>
+        <ion-button (click)="irAInicio()" color="dark" class="footer-button">Inicio</ion-button>
+      </ion-buttons>
+    </div>
+  </ion-toolbar>
+</ion-footer>

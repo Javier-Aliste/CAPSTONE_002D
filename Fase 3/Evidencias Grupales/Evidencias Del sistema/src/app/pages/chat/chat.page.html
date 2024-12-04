@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="titulo-centralizado">
+      {{ obtenerNombreDelOtroUsuario()  }} 
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngFor="let mensaje of mensajes" class="mensaje"
+       [ngClass]="{
+         'mensaje-enviado': mensaje.remitenteId === userId,
+         'mensaje-recibido': mensaje.remitenteId !== userId
+       }">
+    <p>{{ mensaje.contenido }}</p>
+    <span class="fecha">{{ mensaje.fechaEnvio | date: 'short' }}</span>
+  </div>
+
+  <div class="input-container">
+    <textarea [(ngModel)]="contenidoMensaje" placeholder="Escribe un mensaje..." rows="2"></textarea>
+    <ion-button (click)="enviarMensaje()" [disabled]="!contenidoMensaje.trim()">Enviar</ion-button>
+  </div>
+</ion-content>

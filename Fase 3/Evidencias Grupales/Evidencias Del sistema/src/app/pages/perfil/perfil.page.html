@@ -1,0 +1,108 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="irAjustes()">
+        <img src="../../../assets/ajustes.png" alt="Ajustes" style="width: 24px; height: 24px;">
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding">
+
+<div class="profile-header text-center">
+  <img src="../../../assets/logo.png" alt="Logo" class="profile-image">
+  <h2 class="user-name">Bienvenido a tu perfil, {{ cliente.nombreReal }}</h2>
+</div>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-item>
+          <ion-label position="floating">Alias</ion-label>
+          <ion-input [(ngModel)]="cliente.nombreAlias" required></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <ion-item>
+          <ion-label>Género</ion-label>
+          <ion-select [(ngModel)]="cliente.generoSeleccionado">
+            <ion-select-option value="masculino">Masculino</ion-select-option>
+            <ion-select-option value="femenino">Femenino</ion-select-option>
+            <ion-select-option value="otro">Otro</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <ion-item>
+          <ion-label position="floating">Descripción Personal</ion-label>
+          <ion-textarea [(ngModel)]="cliente.descripcion" rows="3" required></ion-textarea>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <ion-item>
+          <ion-label>Intereses</ion-label>
+          <ion-select [(ngModel)]="cliente.intereses" multiple="true">
+            <ion-select-option *ngFor="let interes of intereses" [value]="interes">{{ interes }}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <ion-item>
+          <ion-label>Cualidades</ion-label>
+          <ion-select [(ngModel)]="cliente.cualidades" multiple="true">
+            <ion-select-option *ngFor="let cualidad of cualidades" [value]="cualidad">{{ cualidad }}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <h3 class="text-center section-title">Tus Fotos</h3>
+        <div class="fotos-container">
+          <div class="foto-card" *ngFor="let foto of fotosAdicionales; let i = index" (click)="confirmarEliminarFoto(i)">
+            <img [src]="foto" alt="Foto adicional" />
+          </div>
+          <div class="foto-card add-photo" (click)="agregarNuevaFoto()">
+            <img src="../../../assets/signomas.jpg" class="add-icon" alt="Agregar Foto">
+          </div>
+          <input type="file" #fileInput hidden (change)="subirFoto($event)">
+        </div>
+      </ion-col>
+    </ion-row>
+    
+
+        <ion-row>
+          <ion-col size="12" class="ion-text-center">
+            <ion-button expand="block" color="primary" (click)="guardarCambios()" fill="outline">Guardar Cambios</ion-button>
+          </ion-col>
+        </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <div class="footer-container">
+      <ion-buttons slot="start">
+        <ion-button (click)="irAlPerfil()" color="dark" class="footer-button">Perfil</ion-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-button (click)="irAMensajeria()" color="dark" class="footer-button">Mensajería</ion-button>
+        <ion-button (click)="irAInicio()" color="dark" class="footer-button">Inicio</ion-button>
+      </ion-buttons>
+    </div>
+  </ion-toolbar>
+</ion-footer>

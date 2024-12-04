@@ -1,0 +1,38 @@
+<ion-content class="ion-padding">
+  <div class="container">
+    <div class="header">
+      <h2>¿Nos podrías dar tu número, por favor?</h2>
+      <p>Solo usamos los números de celular para comprobar que la gente de MasQueUnMatch es real.</p>
+    </div>
+
+    <form (ngSubmit)="onSubmit()" #phoneForm="ngForm">
+      <ion-item class="input-item">
+        <ion-label position="floating">Número Telefónico</ion-label>
+        <ion-input 
+          type="tel" 
+          [(ngModel)]="telefono" 
+          name="telefono" 
+          required
+          pattern="^[0-9]{8,15}$" 
+          #telefonoInput="ngModel"
+        ></ion-input>
+      </ion-item>
+
+      <div *ngIf="telefonoInput.invalid && telefonoInput.touched" class="error-message">
+        <small *ngIf="telefonoInput.errors?.['required']">El número de teléfono es requerido.</small>
+        <small *ngIf="telefonoInput.errors?.['pattern']">El número de teléfono debe ser de 8 a 15 dígitos y solo contener números.</small>
+      </div>
+
+      <div *ngIf="!telefonoValido" class="error-message">
+        <small>El número telefónico debe tener entre 8 y 15 dígitos.</small>
+      </div>
+
+      <ion-button expand="full" type="submit" color="danger" [disabled]="phoneForm.invalid || !telefonoValido" class="submit-btn">Continuar</ion-button>
+    </form>
+
+    <div class="privacy-message">
+      <p>Nunca compartiremos esta información y no aparecerá en tu perfil.</p>
+      <ion-icon name="lock-closed" slot="end"></ion-icon>
+    </div>
+  </div>
+</ion-content>

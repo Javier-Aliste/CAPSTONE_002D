@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" color="dark">
+      <ion-back-button fill="clear" color="dark"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <div class="app-header">
+        <img src="../../../assets/logo.png" alt="Logo de MásQueUnMatch" class="app-logo">
+        <span class="app-title">MásQueUnMatch</span>
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card *ngIf="cliente">
+    <ion-card-header>
+      <ion-card-title>{{ cliente.nombreAlias }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p><strong>Género:</strong> {{ cliente.generoSeleccionado }}</p>
+      <p><strong>Descripción:</strong> {{ cliente.descripcion }}</p>
+      <p><strong>Intereses:</strong> {{ cliente.intereses.join(', ') }}</p>
+      <p><strong>Cualidades:</strong> {{ cliente.cualidades.join(', ') }}</p>
+    </ion-card-content>
+
+
+    <div class="botones-circulares">
+      <ion-button class="boton-si" fill="solid" color="success" (click)="Irchat()">Sí</ion-button>
+      <ion-button class="boton-no" fill="solid" color="danger" (click)="irAInicio()">No</ion-button>
+    </div>
+  </ion-card>
+
+
+  <div *ngIf="!cliente">
+    <p>Cargando...</p>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <div class="footer-container">
+
+      <ion-buttons slot="start">
+        <ion-button (click)="irAlPerfil()" color="dark" class="footer-button">Perfil</ion-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-button (click)="irAMensajeria()" color="dark" class="footer-button">Mensajería</ion-button>
+        <ion-button (click)="irAInicio()" color="dark" class="footer-button">Inicio</ion-button>
+      </ion-buttons>
+    </div>
+  </ion-toolbar>
+</ion-footer>
